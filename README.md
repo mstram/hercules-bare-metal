@@ -1,4 +1,4 @@
-Hhercules-bare-metal- DASD Tests
+Hercules-bare-metal- DASD Tests
 ================================
 
 Hercules emulator "bare metal" assembler programs - no O.S. required

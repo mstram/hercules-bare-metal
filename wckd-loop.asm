@@ -8,6 +8,11 @@
 #
 #       Mike Stramba July 29, 2014
 #
+# Hercules Version 3.10.0.0
+# (c)Copyright 1999-2010 by Roger Bowler, Jan Jaeger, and others
+# Built on Jan 22 2014 at 23:41:07
+#
+#
 #        Device     KeyLen  DataLen(dec)  Records Written     Expected (allowed) Number of Records
 #        --------    ------  -------     ---------------     ------------------------------------
 #         3330         0      74              161

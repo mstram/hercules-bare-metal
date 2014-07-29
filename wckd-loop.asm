@@ -1,29 +1,22 @@
+#  Hercules "Bare Metal" Dasd Test
 #
-#  Hercules "Bare Metal"  
-#                            * Read this file into hercules with the SCRIPT <this-filename-command **
-#                            * Run with the RESTART command
+#  Mike Stramba July 29, 2014
+#
+#       * Read this file into hercules with the SCRIPT <this-filename-command **
+#       * Run with the RESTART command
 #
 #      Attempt to write 255 records to device 0001 on CCCC HHHH
 #                                                  0000 0001
-#
-#       Mike Stramba July 29, 2014
+#      Record format :  Keylen (KL), DATALEN
+#                        set at    WCD
+#                                    KEYLEN  DC X'??'
+#                                    DATALEN DC X'??'
 #
 # Hercules Version 3.10.0.0
 # (c)Copyright 1999-2010 by Roger Bowler, Jan Jaeger, and others
 # Built on Jan 22 2014 at 23:41:07
 #
 #
-#        Device     KeyLen  DataLen(dec)  Records Written     Expected (allowed) Number of Records
-#        --------    ------  -------     ---------------     ------------------------------------
-#         3330         0      74              161
-#         3340         0      74              105                             74
-#         3350         0      74              236                             74
-#         3375         0      74              255                             74
-#         3380         0      74              255                             74
-#         3390-1       0      74              255                             ???
-#         3390-3       0      74              255                             ???
-#         3390-9       0      74              255                             ???
-#         9345         0      74              255                             ???
 r 1=08
 r 6=2000
 r 002000=05C0               #                      BALR  R12,0
@@ -44,7 +37,7 @@ r 00202E=8200 C08E          #                      LPSW  WAITPSW
 r 002040=07 002060 40 00 0006   #          23 CCWWRITE CCW  7,CCHH,X'40',6
 r 002048=31 002070 40 00 0005   #          24 SRCHCCW  CCW  X'31',CCHHR,X'40',5
 r 002050=08 002048 00 00 0000   #          25          CCW  X'08',SRCHCCW,0,0
-r 002058=1D 002080 00 00 0010   #          26          CCW  X'1D',WCKD,0,16
+r 002058=1D 002080 00 00 0010   #          26          CCW  X'1D',WCKD,0,16       Write: Count, Key and Data
                             #           *
                             #           *              MBZ   CC      HH
 r 002060=00 00 0000 0001    #             CCHH     DC X'0000',X'0000',X'0001'  SEEK DATA CYL=0000 HD=0001

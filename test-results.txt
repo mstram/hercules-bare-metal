@@ -1,0 +1,31 @@
+#
+# July 29, 2014
+#
+# Hercules Version 3.10.0.0
+(c)Copyright 1999-2010 by Roger Bowler, Jan Jaeger, and others
+ Built on Jan 22 2014 at 23:41:07
+  Build information:
+  Windows (MSVC) build for i386
+  Modes: S/370 ESA/390 z/Arch
+  Max CPU Engines: 8
+  Using fthreads instead of pthreads
+  Dynamic loading support
+  Using shared libraries
+  HTTP Server support
+  No SIGABEND handler
+  Regular Expressions support
+  Automatic Operator support
+  Machine dependent assists: cmpxchg1 cmpxchg4 cmpxchg8 fetch_dw store_dw
+#
+#
+#        Device     KeyLen  DataLen(dec)  Records Written     Expected (allowed) Number of Records
+#        --------    ------  -------     ---------------     ------------------------------------
+#         3330         0      74              161
+#         3340         0      74              105                             ??
+#         3350         0      74              236                             ??
+#         3375         0      74              255                             74
+#         3380         0      74              255                             ??
+#         3390-1       0      74              255                             78
+#         3390-3       0      74              255                             ???
+#         3390-9       0      74              255                             ???
+#         9345         0      74              255                             ???
